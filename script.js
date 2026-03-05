@@ -1,10 +1,8 @@
-console.log("Hello World");
 const form = document.querySelector('form');
 const addItem = document.getElementById("addItem");
 const listItems = document.querySelector('ul');
 const message = document.querySelector('.message');
 const filter = document.querySelector('.filterItems');
-console.log(listItems);
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Form Submitted");
@@ -159,9 +157,8 @@ function saveItems(items) {
   localStorage.setItem('items', JSON.stringify(items));
 }
 
-// Load items from local storage on page load
+// Load items from local storage on page load and hide the input filter for filterItems
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(localStorage);
   const storedItems = getStoredItems();
   storedItems.forEach(item => {
     const li = document.createElement('li');
@@ -174,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
     li.appendChild(span);
     listItems.appendChild(li);
   });
+  toggleFilterVisibility();
+
 });
 
 
@@ -195,6 +194,8 @@ listItems.parentElement.prepend(filter);
 
 
 function toggleFilterVisibility() {
+  console.log('filter called');
   const hasItems = listItems.querySelectorAll('li').length > 0;
-  filter.style.display = hasItems ? '' : 'none';
+  console.log(hasItems);
+  filter.style.display = hasItems ? 'block' : 'none';
 }
