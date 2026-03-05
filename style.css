@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1a1a2e;
+  font-size: 1.8rem;
+  display: block;
+}
+
+#section1 {
+  background: #fff;
+  max-width: 500px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#section1 > p {
+  margin-bottom: 16px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.message {
+  min-height: 24px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.message.alert {
+  color: #e74c3c;
+}
+
+.message.success {
+  color: #27ae60;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+#inputItem {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+#inputItem:focus {
+  border-color: #3498db;
+}
+
+#addItem,
+#clearButton {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#addItem {
+  background-color: #3498db;
+  color: #fff;
+}
+
+#addItem:hover {
+  background-color: #2980b9;
+}
+
+#clearButton {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+#clearButton:hover {
+  background-color: #c0392b;
+}
+
+#addItem:active,
+#clearButton:active {
+  transform: scale(0.96);
+}
+
+.list-items-wrap {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.list-items-wrap li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.list-items-wrap li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.removeItem {
+  padding: 6px 12px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.removeItem:hover {
+  background-color: #ee5a24;
+}
+
+.filterItems {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.filterItems:focus {
+  border-color: #3498db;
+}
+
+.confirmation-box {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.confirm-buttons-wrap {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.confirm-button,
+.reject-button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.confirm-button {
+  background-color: #27ae60;
+}
+
+.confirm-button:hover {
+  background-color: #219a52;
+}
+
+.reject-button {
+  background-color: #e74c3c;
+}
+
+.reject-button:hover {
+  background-color: #c0392b;
+}
+
+.confirm-button:active,
+.reject-button:active {
+  transform: scale(0.96);
+}
