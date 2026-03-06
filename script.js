@@ -3,6 +3,7 @@ const addItem = document.getElementById("addItem");
 const listItems = document.querySelector('ul');
 const message = document.querySelector('.message');
 const filter = document.querySelector('.filterItems');
+const itemCount = document.getElementById('itemCount');
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Form Submitted");
@@ -32,6 +33,7 @@ addItem.addEventListener("click", () => {
   span.textContent = ' Remove';
   li.appendChild(span);
   listItems.appendChild(li);
+  updateItemCount();
   document.getElementById('inputItem').value = '';
   message.textContent = `Item added!`;
   message.classList.add('success');
@@ -87,6 +89,7 @@ listItems.addEventListener( 'click', (e) => {
     }, 1000);
 
     toggleFilterVisibility();
+    updateItemCount();
   }
 });
 
@@ -141,6 +144,7 @@ if(clearButton) {
         message.textContent = '';
         message.classList.remove('alert');
       }, 1000);
+      updateItemCount();
     });
     noBtn.addEventListener('click', () => {
         message.textContent = '';
@@ -172,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     listItems.appendChild(li);
   });
   toggleFilterVisibility();
+  updateItemCount();
 
 });
 
@@ -184,11 +189,17 @@ filter.addEventListener('input', (e) => {
   console.log('Jazz');
   console.log('Iems');
   console.log(items);
+  let count = 0;
   items.forEach(item => {
     const text = item.firstChild.textContent.toLowerCase();
-
+    // lets increment the value of count if it's visible
+    if(text.includes(filterValue)){
+      count++;
+    }
     item.style.display = text.includes(filterValue) ? '' : 'none';
   });
+
+  itemCount.textContent = count;
 });
 listItems.parentElement.prepend(filter);
 
@@ -198,4 +209,9 @@ function toggleFilterVisibility() {
   const hasItems = listItems.querySelectorAll('li').length > 0;
   console.log(hasItems);
   filter.style.display = hasItems ? 'block' : 'none';
+}
+
+function updateItemCount() {
+  const count = listItems.children.length;
+  itemCount.textContent = count;
 }
